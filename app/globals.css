@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@layer base {
+  :root {
+    --background: 40 20% 97%;
+    --foreground: 0 0% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+    --primary: 345 63% 38%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 20%;
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 345 63% 38%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 358 72% 59%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 345 63% 38%;
+    --radius: 0.5rem;
+
+    --sidebar-bg: 0 0% 98%;
+    --sidebar-border: 0 0% 91%;
+    --sidebar-hover: 0 0% 94%;
+    --sidebar-active: 345 63% 95%;
+    --sidebar-active-text: 345 63% 35%;
+
+    --chart-1: 345 63% 38%;
+    --chart-2: 142 71% 45%;
+    --chart-3: 38 92% 50%;
+    --chart-4: 358 72% 59%;
+    --chart-5: 198 93% 60%;
+
+    --cs-accent: 345 63% 38%;
+    --cs-success: 142 71% 45%;
+    --cs-danger: 358 72% 59%;
+    --cs-warning: 38 92% 50%;
+  }
+
+  .dark {
+    --background: 0 0% 6%;
+    --foreground: 0 0% 93%;
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 93%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 93%;
+    --primary: 345 63% 52%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 13%;
+    --secondary-foreground: 0 0% 80%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 345 63% 52%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 358 72% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 345 63% 52%;
+
+    --sidebar-bg: 0 0% 7%;
+    --sidebar-border: 0 0% 14%;
+    --sidebar-hover: 0 0% 11%;
+    --sidebar-active: 345 63% 18%;
+    --sidebar-active-text: 345 63% 75%;
+
+    --chart-1: 345 63% 52%;
+    --chart-2: 142 71% 45%;
+    --chart-3: 38 92% 50%;
+    --chart-4: 358 72% 59%;
+    --chart-5: 198 93% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .font-serif {
+    font-family: 'Lora', Georgia, serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  }
+}
+
+@layer utilities {
+  .sidebar-item {
+    @apply flex items-center gap-2 px-3 py-1.5 rounded-md text-sm transition-colors cursor-pointer;
+    color: hsl(var(--muted-foreground));
+  }
+
+  .sidebar-item:hover {
+    background: hsl(var(--sidebar-hover));
+    color: hsl(var(--foreground));
+  }
+
+  .sidebar-item.active {
+    background: hsl(var(--sidebar-active));
+    color: hsl(var(--sidebar-active-text));
+    font-weight: 500;
+  }
+
+  .card-hover {
+    @apply transition-all duration-200;
+  }
+
+  .card-hover:hover {
+    @apply shadow-md;
+    transform: translateY(-2px);
+  }
+
+  .status-badge {
+    @apply inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .priority-urgent {
+    @apply text-red-600 dark:text-red-400;
+  }
+
+  .priority-high {
+    @apply text-orange-600 dark:text-orange-400;
+  }
+
+  .priority-medium {
+    @apply text-yellow-600 dark:text-yellow-500;
+  }
+
+  .priority-low {
+    @apply text-blue-600 dark:text-blue-400;
+  }
+
+  .metric-value {
+    font-family: 'JetBrains Mono', monospace;
+    @apply tabular-nums;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 4px;
+  }
+}
